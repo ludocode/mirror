@@ -84,8 +84,6 @@
 #include "ghost/string/ghost_strcpy.h"
 
 /* additional stuff needed for internal */
-#include "ghost/container/template/tmmap/ghost_tmmap_type.h"
-#include "ghost/container/template/tmmap/ghost_tmmap_static.h"
 #include "ghost/debug/ghost_abort.h"
 #include "ghost/language/ghost_noinline.h"
 #include "ghost/language/ghost_extern_c_push_pop.h"

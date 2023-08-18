@@ -31,6 +31,7 @@
 
 #include "mirror/impl/mirror_impl_declare.h"
 #include "mirror/impl/mirror_impl_runner_checks.h"
+#include "mirror/impl/mirror_impl_tmmap.h"
 
 /* The largest fixture we'll allocate on the stack */
 #if ghost_has(ghost_alloca)
@@ -43,22 +44,22 @@
 extern "C" {
 #endif
 
-GHOST_TMMAP_TYPE(mirror_all_tests)
-GHOST_TMMAP_TYPE(mirror_suite_tests)
-GHOST_TMMAP_TYPE(mirror_all_suites)
-GHOST_TMMAP_TYPE(mirror_suite_suites)
+MIRROR_TMMAP_TYPE(mirror_all_tests)
+MIRROR_TMMAP_TYPE(mirror_suite_tests)
+MIRROR_TMMAP_TYPE(mirror_all_suites)
+MIRROR_TMMAP_TYPE(mirror_suite_suites)
 
 typedef int ghost_impl_chibicc_unused4; /* chibicc workaround: https://github.com/rui314/chibicc/issues/99 */
 
 #define mirror_tests_key(test) test->name
-GHOST_TMMAP_STATIC(mirror_all_tests, const char*, mirror_test_t, all_tests, mirror_tests_key, ghost_strcmp)
-GHOST_TMMAP_STATIC(mirror_suite_tests, const char*, mirror_test_t, suite_tests, mirror_tests_key, ghost_strcmp)
+MIRROR_TMMAP_STATIC(mirror_all_tests, const char*, mirror_test_t, all_tests, mirror_tests_key, ghost_strcmp)
+MIRROR_TMMAP_STATIC(mirror_suite_tests, const char*, mirror_test_t, suite_tests, mirror_tests_key, ghost_strcmp)
 
 typedef int ghost_impl_chibicc_unused3; /* chibicc workaround: https://github.com/rui314/chibicc/issues/99 */
 
 #define mirror_suites_key(suite) suite->name
-GHOST_TMMAP_STATIC(mirror_all_suites, const char*, mirror_suite_t, all_suites, mirror_suites_key, ghost_strcmp)
-GHOST_TMMAP_STATIC(mirror_suite_suites, const char*, mirror_suite_t, suite_suites, mirror_suites_key, ghost_strcmp)
+MIRROR_TMMAP_STATIC(mirror_all_suites, const char*, mirror_suite_t, all_suites, mirror_suites_key, ghost_strcmp)
+MIRROR_TMMAP_STATIC(mirror_suite_suites, const char*, mirror_suite_t, suite_suites, mirror_suites_key, ghost_strcmp)
 
 /* Global maps */
 static mirror_all_tests_t* mirror_all_tests(void) {

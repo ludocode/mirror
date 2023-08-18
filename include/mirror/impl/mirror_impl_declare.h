@@ -26,6 +26,7 @@
 #define MIRROR_IMPL_DECLARE_H
 
 #include "mirror/impl/mirror_impl_ghost.h"
+#include "mirror/impl/mirror_impl_iwbt.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -103,8 +104,8 @@ struct mirror_suite_t {
     void (*fixture_teardown)(void*);
 
     /* links */
-    ghost_iwbt_node_t all_suites;
-    ghost_iwbt_node_t suite_suites;
+    mirror_iwbt_node_t all_suites;
+    mirror_iwbt_node_t suite_suites;
     /*
     mirror_suite_t* parent;
     mirror_test_t* first_test;
@@ -138,8 +139,8 @@ struct mirror_test_t {
 
     /* links */
     mirror_suite_t* suite;
-    ghost_iwbt_node_t all_tests;
-    ghost_iwbt_node_t suite_tests;
+    mirror_iwbt_node_t all_tests;
+    mirror_iwbt_node_t suite_tests;
 };
 
 void mirror_register_test(mirror_test_t* test);
